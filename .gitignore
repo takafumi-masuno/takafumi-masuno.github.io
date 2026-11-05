@@ -45,3 +45,6 @@ next-env.d.ts
 
 # serena (ローカルのコード解析ツール設定)
 /.serena/
+
+# claude code (ローカルの設定)
+/.claude/
