@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { countMonths } from "@/lib/experience";
 import { dictionaries } from "./index";
-import { careers, skills } from "./profile";
+import { careers, libraries, skills } from "./profile";
 import { careerIds, locales, skillIds } from "./types";
 
 /** 文字列の値をすべて取り出す（空文字の検出用） */
@@ -50,6 +50,12 @@ describe("コンテンツの整合性", () => {
   it("経歴は新しい順に並んでいる", () => {
     const starts = careers.map((career) => career.period.start);
     expect(starts).toEqual([...starts].sort().reverse());
+  });
+
+  it("技術タグに重複がない（React の key に使うため）", () => {
+    for (const list of [...careers.map((career) => career.tech), libraries]) {
+      expect(new Set(list).size).toBe(list.length);
+    }
   });
 });
 
