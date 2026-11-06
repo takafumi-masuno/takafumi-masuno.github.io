@@ -1,5 +1,5 @@
 import type { Period } from "@/lib/experience";
-import type { CareerId, SkillId } from "./types";
+import type { CareerId, SkillId, WorkId } from "./types";
 
 /** 言語に依存しないプロフィールデータ（期間・技術名など） */
 
@@ -9,6 +9,25 @@ export const site = {
   githubUrl: "https://github.com/takafumi-masuno",
   repositoryUrl: "https://github.com/takafumi-masuno/takafumi-masuno.github.io",
 } as const;
+
+export type WorkData = {
+  id: WorkId;
+  repositoryUrl: string;
+  demoUrl?: string;
+};
+
+/** 作品（見せたい順） */
+export const works: readonly WorkData[] = [
+  {
+    id: "invoice-generator",
+    repositoryUrl: "https://github.com/takafumi-masuno/invoice-generator",
+    demoUrl: "https://takafumi-masuno.github.io/invoice-generator/",
+  },
+  {
+    id: "portfolio",
+    repositoryUrl: site.repositoryUrl,
+  },
+];
 
 export type CareerData = {
   id: CareerId;

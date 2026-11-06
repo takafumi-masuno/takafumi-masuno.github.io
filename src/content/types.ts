@@ -23,6 +23,9 @@ export const skillIds = [
 ] as const;
 export type SkillId = (typeof skillIds)[number];
 
+export const workIds = ["invoice-generator", "portfolio"] as const;
+export type WorkId = (typeof workIds)[number];
+
 export const sectionIds = ["about", "skills", "career", "works"] as const;
 export type SectionId = (typeof sectionIds)[number];
 
@@ -76,7 +79,11 @@ export type Dictionary = {
   };
   works: {
     heading: string;
-    items: readonly { title: string; body: string; linkLabel: string }[];
+    labels: {
+      demo: string;
+      source: string;
+    };
+    items: Record<WorkId, { title: string; body: string }>;
   };
   footer: {
     github: string;

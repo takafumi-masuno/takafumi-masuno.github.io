@@ -119,13 +119,20 @@ export const ja: Dictionary = {
   },
   works: {
     heading: "作品",
-    items: [
-      {
+    labels: {
+      demo: "デモを見る",
+      source: "GitHub でソースを見る",
+    },
+    items: {
+      "invoice-generator": {
+        title: "見積書・請求書ジェネレーター",
+        body: "見積書と適格請求書（インボイス）をブラウザだけで作成し、PDF で出力できる Web アプリです。登録は不要で、入力したデータは外部に送信しません。インボイス制度の記載事項と端数処理を調べて設計し、E2E テストとアクセシビリティ検査を CI で実行しています。",
+      },
+      portfolio: {
         title: "このサイト",
         body: "Next.js・TypeScript で作成。静的出力で、日本語と英語に対応しています。",
-        linkLabel: "GitHub でソースを見る",
       },
-    ],
+    },
   },
   footer: {
     github: "GitHub",

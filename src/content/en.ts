@@ -121,13 +121,20 @@ export const en: Dictionary = {
   },
   works: {
     heading: "Works",
-    items: [
-      {
+    labels: {
+      demo: "Open demo",
+      source: "View source on GitHub",
+    },
+    items: {
+      "invoice-generator": {
+        title: "Estimate & Invoice Generator",
+        body: "A web app that creates estimates and Japanese qualified invoices and exports them as PDF, entirely in the browser. No sign-up is needed, and your data never leaves the browser. I designed it around the invoice requirements and tax rounding rules, and CI runs end-to-end and accessibility tests. The UI is in Japanese only.",
+      },
+      portfolio: {
         title: "This website",
         body: "Built with Next.js and TypeScript. Statically exported and available in Japanese and English.",
-        linkLabel: "View source on GitHub",
       },
-    ],
+    },
   },
   footer: {
     github: "GitHub",

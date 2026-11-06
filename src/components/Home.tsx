@@ -1,5 +1,5 @@
 import { dictionaries } from "@/content";
-import { careers, libraries, site, skills } from "@/content/profile";
+import { careers, libraries, site, skills, works } from "@/content/profile";
 import type { Dictionary, Locale } from "@/content/types";
 import { formatPeriod } from "@/lib/format";
 import { Header } from "./Header";
@@ -201,25 +201,43 @@ function Works({ dict }: { dict: Dictionary }) {
   return (
     <Section id="works" index={4} heading={dict.works.heading}>
       <ul className="grid gap-4 md:grid-cols-2">
-        {dict.works.items.map((work) => (
-          <li key={work.title}>
-            <Reveal className="h-full rounded-2xl border border-border bg-card p-6 sm:p-8">
-              <h3 className="text-xl font-semibold">{work.title}</h3>
-              <p className="mt-3 text-sm text-muted">{work.body}</p>
-              <a
-                href={site.repositoryUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline"
-              >
-                {work.linkLabel}
-                <span aria-hidden="true">→</span>
-              </a>
-            </Reveal>
-          </li>
-        ))}
+        {works.map((work) => {
+          const text = dict.works.items[work.id];
+          return (
+            <li key={work.id}>
+              <Reveal className="h-full rounded-2xl border border-border bg-card p-6 sm:p-8">
+                <h3 className="text-xl font-semibold">{text.title}</h3>
+                <p className="mt-3 text-sm text-muted">{text.body}</p>
+                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+                  {work.demoUrl && (
+                    <WorkLink href={work.demoUrl}>
+                      {dict.works.labels.demo}
+                    </WorkLink>
+                  )}
+                  <WorkLink href={work.repositoryUrl}>
+                    {dict.works.labels.source}
+                  </WorkLink>
+                </div>
+              </Reveal>
+            </li>
+          );
+        })}
       </ul>
     </Section>
+  );
+}
+
+function WorkLink({ href, children }: { href: string; children: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline"
+    >
+      {children}
+      <span aria-hidden="true">→</span>
+    </a>
   );
 }
 
