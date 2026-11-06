@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { countMonths } from "@/lib/experience";
 import { dictionaries } from "./index";
-import { careers, libraries, skills } from "./profile";
-import { careerIds, locales, skillIds } from "./types";
+import { careers, libraries, skills, works } from "./profile";
+import { careerIds, locales, skillIds, workIds } from "./types";
 
 /** 文字列の値をすべて取り出す（空文字の検出用） */
 function collectStrings(value: unknown, path = ""): [string, string][] {
@@ -32,7 +32,6 @@ describe("コンテンツの整合性", () => {
     const { ja, en } = dictionaries;
     expect(en.about.paragraphs).toHaveLength(ja.about.paragraphs.length);
     expect(en.about.strengths).toHaveLength(ja.about.strengths.length);
-    expect(en.works.items).toHaveLength(ja.works.items.length);
   });
 
   it("日英で注記のあるスキルが一致する", () => {
@@ -42,9 +41,10 @@ describe("コンテンツの整合性", () => {
     );
   });
 
-  it("経歴・スキルのデータが ID の一覧と過不足なく対応する", () => {
+  it("経歴・スキル・作品のデータが ID の一覧と過不足なく対応する", () => {
     expect(careers.map((career) => career.id)).toEqual([...careerIds]);
     expect(skills.map((skill) => skill.id)).toEqual([...skillIds]);
+    expect(works.map((work) => work.id)).toEqual([...workIds]);
   });
 
   it("経歴は新しい順に並んでいる", () => {
