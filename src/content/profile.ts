@@ -24,6 +24,11 @@ export const works: readonly WorkData[] = [
     demoUrl: "https://takafumi-masuno.github.io/invoice-generator/",
   },
   {
+    id: "patch-notice",
+    repositoryUrl: "https://github.com/takafumi-masuno/patch-notice",
+    demoUrl: "https://takafumi-masuno.github.io/patch-notice/",
+  },
+  {
     id: "portfolio",
     repositoryUrl: site.repositoryUrl,
   },
