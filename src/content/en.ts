@@ -130,6 +130,10 @@ export const en: Dictionary = {
         title: "Estimate & Invoice Generator",
         body: "A web app that creates estimates and Japanese qualified invoices and exports them as PDF, entirely in the browser. No sign-up is needed, and your data never leaves the browser. I designed it around the invoice requirements and tax rounding rules, and CI runs end-to-end and accessibility tests. The UI is in Japanese only.",
       },
+      "patch-notice": {
+        title: "Patch Notice (vulnerability information site)",
+        body: "A website that collects vulnerability and update information for IT teams to share with employees. It fetches official sources every six hours, and code rules decide the urgency and write the notices for employees. AI (Claude) only summarizes facts, and only summaries that pass automated checks are published. I chose the sources after checking their terms of use, and CI runs end-to-end and accessibility tests. The UI is in Japanese only.",
+      },
       portfolio: {
         title: "This website",
         body: "Built with Next.js and TypeScript. Statically exported and available in Japanese and English.",

@@ -23,7 +23,11 @@ export const skillIds = [
 ] as const;
 export type SkillId = (typeof skillIds)[number];
 
-export const workIds = ["invoice-generator", "portfolio"] as const;
+export const workIds = [
+  "invoice-generator",
+  "patch-notice",
+  "portfolio",
+] as const;
 export type WorkId = (typeof workIds)[number];
 
 export const sectionIds = ["about", "skills", "career", "works"] as const;
